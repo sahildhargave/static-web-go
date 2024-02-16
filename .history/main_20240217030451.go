@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -15,15 +14,8 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "POST request successful")
 	name := r.FormValue("name")
 	address := r.FormValue("address")
-	fmt.Fprintf(w, "Name %s\n", name)
-
-	fmt.Fprintf(w, "Address %s\n", address)
-	w.Header().Set("Content-Type", "application/json")
-
-	// Create a JSON encoder from the http.ResponseWriter
-	encoder := json.NewEncoder(w)
-
-	fmt.Println(encoder)
+	fmt.Println(w, "Name %s\n", name)
+	fmt.Println(w, "Address %s\n", address)
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
